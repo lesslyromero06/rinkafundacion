@@ -79,6 +79,18 @@ const catsData = [
     dewormed: true,
     image: "images/fernanda1.jpg",
     description: "Nacio en los techos y desconfiaba de los humanos, pero el amor la ha hecho cambiar y ahora busca un lugar lleno de amor para ella"
+  },
+  {
+    id: 7,
+    name: "Princesa",
+    category: "gatitos",
+    gender: "Hembra",
+    age: "4 meses",
+    sterilized: false,
+    vaccinated: false,
+    dewormed: true,
+    image: "images/7.princesa.jpg",
+    description: "Una gatita proveniente de los techos de Alto Bonito. Es hermosa y busca una familia que le tenga paciencia para enseñarle lo que es el amor, ya que aun le cuesta confiar en los humanos"
   }
 ];
 
