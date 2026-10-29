@@ -1352,3 +1352,20 @@ iframe {
   }
 }
 
+
+/* Fondo especial de RINKA para celulares */
+@media screen and (max-width: 768px) {
+  .hero {
+    background-image:
+      linear-gradient(
+        rgba(14, 75, 79, 0.20),
+        rgba(14, 75, 79, 0.20)
+      ),
+      url("images/fondo-rinka-movil.png");
+
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+}
+
