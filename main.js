@@ -1,6 +1,13 @@
-// Base de datos simulada de gatitos pequeños y gatas adultas en adopción
+
+/* =========================================================
+   FUNDACIÓN RINKA
+   Catálogo de adopción, navegación, formulario y donaciones
+   ========================================================= */
+
+
+/* 1. BASE DE DATOS DE GATITOS EN ADOPCIÓN */
+
 const catsData = [
-  // Gatitos Pequeños
   {
     id: 1,
     name: "Bomberito",
@@ -37,8 +44,6 @@ const catsData = [
     image: "images/mala-caroso.jpg",
     description: "Tímido al principio pero muy dulce una vez toma confianza. Ideal para un hogar tranquilo. Nació en los techos y fue un proceso su socialización, pero ya ha confiado más en los humanos"
   },
-
-  // Gatas Adultas Esterilizadas
   {
     id: 4,
     name: "NN",
@@ -77,137 +82,281 @@ const catsData = [
   }
 ];
 
-// Elementos del DOM
-const catsGrid = document.getElementById('catsGrid');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
 
-const adoptModal = document.getElementById('adoptModal');
-const closeModal = document.getElementById('closeModal');
-const modalCatName = document.getElementById('modalCatName');
-const selectedCatInput = document.getElementById('selectedCatInput');
-const adoptionForm = document.getElementById('adoptionForm');
+/* 2. ELEMENTOS DE LA PÁGINA */
 
-// Función para renderizar las tarjetas de gatos
-function renderCats(filter = 'todos') {
-  catsGrid.innerHTML = '';
+const catsGrid = document.getElementById("catsGrid");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
-  const filteredCats = filter === 'todos' 
-    ? catsData 
+const menuToggle = document.getElementById("menuToggle");
+const navLinksLeft = document.getElementById("navLinksLeft");
+const navLinksRight = document.getElementById("navLinksRight");
+
+const adoptModal = document.getElementById("adoptModal");
+const closeModal = document.getElementById("closeModal");
+const modalCatName = document.getElementById("modalCatName");
+const selectedCatInput = document.getElementById("selectedCatInput");
+const adoptionForm = document.getElementById("adoptionForm");
+
+
+/* 3. MOSTRAR EL CATÁLOGO DE GATITOS */
+
+function renderCats(filter = "todos") {
+  if (!catsGrid) return;
+
+  catsGrid.innerHTML = "";
+
+  const filteredCats = filter === "todos"
+    ? catsData
     : catsData.filter(cat => cat.category === filter);
 
   if (filteredCats.length === 0) {
-    catsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No hay felinos disponibles en esta categoría actualmente.</p>`;
+    catsGrid.innerHTML = `
+      <p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+        No hay felinos disponibles en esta categoría actualmente.
+      </p>
+    `;
     return;
   }
 
   filteredCats.forEach(cat => {
-    const isKitten = cat.category === 'gatitos';
-    const categoryLabel = isKitten ? 'Gatito Pequeño' : 'Gata Adulta';
+    const isKitten = cat.category === "gatitos";
+    const categoryLabel = isKitten
+      ? "Gatito Pequeño"
+      : "Gata Adulta";
 
-    const card = document.createElement('div');
-    card.className = 'cat-card';
+    const card = document.createElement("div");
+    card.className = "cat-card";
+
     card.innerHTML = `
       <div class="cat-image-wrapper">
-        <img src="${cat.image}" alt="${cat.name}" class="cat-image">
+        <img
+          src="${cat.image}"
+          alt="${cat.name}"
+          class="cat-image"
+          loading="lazy"
+        >
         <span class="cat-badge">${categoryLabel}</span>
       </div>
+
       <div class="cat-content">
         <div class="cat-title">
           <h3>${cat.name}</h3>
           <span class="cat-gender">${cat.gender}</span>
         </div>
+
         <div class="cat-details">
           <span>Edad: <strong>${cat.age}</strong></span>
         </div>
+
         <div class="cat-tags">
-          ${cat.sterilized ? '<span class="tag sterilized">✓ Esterilizada</span>' : '<span class="tag">Compromiso Esterilización</span>'}
-          ${cat.vaccinated ? '<span class="tag">✓ Vacunado/a</span>' : ''}
-          ${cat.dewormed ? '<span class="tag">✓ Desparasitado/a</span>' : ''}
+          ${
+            cat.sterilized
+              ? '<span class="tag sterilized">✓ Esterilizada</span>'
+              : '<span class="tag">Compromiso Esterilización</span>'
+          }
+
+          ${
+            cat.vaccinated
+              ? '<span class="tag">✓ Vacunado/a</span>'
+              : ""
+          }
+
+          ${
+            cat.dewormed
+              ? '<span class="tag">✓ Desparasitado/a</span>'
+              : ""
+          }
         </div>
+
         <p class="cat-desc">${cat.description}</p>
-        <button class="btn-adopt" onclick="openAdoptionModal('${cat.name}')">Solicitar Adopción</button>
+
+        <button
+          type="button"
+          class="btn-adopt"
+          data-cat-name="${cat.name}"
+        >
+          Solicitar Adopción
+        </button>
       </div>
     `;
+
     catsGrid.appendChild(card);
   });
 }
 
-// Control de Filtros
+
+/* 4. FILTROS DEL CATÁLOGO */
+
 filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.getAttribute('data-filter');
+  btn.addEventListener("click", () => {
+    filterBtns.forEach(button => {
+      button.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+
+    const filter = btn.getAttribute("data-filter");
     renderCats(filter);
   });
 });
 
-// Menú Hamburguesa para Móviles
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
 
-// Cerrar menú móvil al hacer clic en un enlace
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('show');
+/* 5. MENÚ DE NAVEGACIÓN PARA CELULARES */
+
+if (menuToggle && navLinksLeft && navLinksRight) {
+
+  // Abrir y cerrar los dos grupos de enlaces.
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinksLeft.classList.contains("show");
+
+    navLinksLeft.classList.toggle("show", !isOpen);
+    navLinksRight.classList.toggle("show", !isOpen);
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      !isOpen ? "true" : "false"
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      !isOpen ? "Cerrar menú" : "Abrir menú"
+    );
   });
-});
 
-// Abrir Modal de Adopción
-function openAdoptionModal(catName) {
-  modalCatName.textContent = catName;
-  selectedCatInput.value = catName;
-  adoptModal.classList.add('active');
+  // Cerrar el menú después de seleccionar una opción.
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinksLeft.classList.remove("show");
+      navLinksRight.classList.remove("show");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
+    });
+  });
+
+  // Cerrar el menú si se cambia a una pantalla de escritorio.
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      navLinksLeft.classList.remove("show");
+      navLinksRight.classList.remove("show");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
+    }
+  });
 }
 
-// Cerrar Modal
-closeModal.addEventListener('click', () => {
-  adoptModal.classList.remove('active');
-});
 
-adoptModal.addEventListener('click', (e) => {
-  if (e.target === adoptModal) {
-    adoptModal.classList.remove('active');
+/* 6. ABRIR EL FORMULARIO DE ADOPCIÓN */
+
+function openAdoptionModal(catName) {
+  if (!adoptModal || !modalCatName || !selectedCatInput) {
+    return;
+  }
+
+  modalCatName.textContent = catName;
+  selectedCatInput.value = catName;
+
+  adoptModal.classList.add("active");
+}
+
+
+// Permitir que los botones del catálogo abran el formulario.
+if (catsGrid) {
+  catsGrid.addEventListener("click", event => {
+    const adoptButton = event.target.closest(".btn-adopt");
+
+    if (!adoptButton) return;
+
+    const catName = adoptButton.getAttribute("data-cat-name");
+
+    if (catName) {
+      openAdoptionModal(catName);
+    }
+  });
+}
+
+
+/* 7. CERRAR EL FORMULARIO DE ADOPCIÓN */
+
+if (closeModal && adoptModal) {
+  closeModal.addEventListener("click", () => {
+    adoptModal.classList.remove("active");
+  });
+
+  adoptModal.addEventListener("click", event => {
+    if (event.target === adoptModal) {
+      adoptModal.classList.remove("active");
+    }
+  });
+}
+
+// Permitir cerrar el formulario con la tecla Escape.
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && adoptModal) {
+    adoptModal.classList.remove("active");
   }
 });
 
-// Manejo del Envío del Formulario
-adoptionForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const catName = selectedCatInput.value;
-  const applicantName = document.getElementById('fullName').value;
 
-  alert(`¡Muchas gracias ${applicantName}! Tu solicitud de adopción para ${catName} ha sido recibida por la Fundación RINKA. Nos pondremos en contacto contigo pronto.`);
+/* 8. ENVÍO DEL FORMULARIO DE ADOPCIÓN */
 
-  adoptionForm.reset();
-  adoptModal.classList.remove('active');
-});
+if (adoptionForm && selectedCatInput && adoptModal) {
+  adoptionForm.addEventListener("submit", event => {
+    event.preventDefault();
 
-// Inicialización
-document.addEventListener('DOMContentLoaded', () => {
-  renderCats('todos');
-});
+    const catName = selectedCatInput.value;
+    const fullNameInput = document.getElementById("fullName");
+
+    const applicantName = fullNameInput
+      ? fullNameInput.value.trim()
+      : "";
+
+    alert(
+      `¡Muchas gracias ${applicantName}! ` +
+      `Tu solicitud de adopción para ${catName} ` +
+      `ha sido recibida por la Fundación RINKA. ` +
+      `Nos pondremos en contacto contigo pronto.`
+    );
+
+    adoptionForm.reset();
+    adoptModal.classList.remove("active");
+  });
+}
 
 
-/* Botón para copiar el número de Nequi de RINKA */
+/* 9. BOTÓN PARA COPIAR EL NÚMERO DE NEQUI */
+
 const copyNequiButton = document.getElementById("copyNequi");
 const nequiNumber = document.getElementById("nequiNumber");
 const copyMessage = document.getElementById("copyMessage");
 
 if (copyNequiButton && nequiNumber && copyMessage) {
-    copyNequiButton.addEventListener("click", async () => {
-        const number = nequiNumber.textContent.replace(/\s/g, "");
+  copyNequiButton.addEventListener("click", async () => {
+    const number = nequiNumber.textContent.replace(/\s/g, "");
 
-        try {
-            await navigator.clipboard.writeText(number);
-            copyMessage.textContent =
-                "¡Número copiado! Ya puedes pegarlo en Nequi.";
-        } catch (error) {
-            copyMessage.textContent =
-                "Número de Nequi: " + nequiNumber.textContent;
-        }
-    });
+    try {
+      await navigator.clipboard.writeText(number);
+
+      copyMessage.textContent =
+        "¡Número copiado! Ya puedes pegarlo en Nequi.";
+
+    } catch (error) {
+      copyMessage.textContent =
+        "Número de Nequi: " + nequiNumber.textContent +
+        ". Si no se copió, puedes escribirlo manualmente.";
+    }
+  });
+}
+
+
+/* 10. INICIALIZAR EL CATÁLOGO */
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCats("todos");
+  });
+} else {
+  renderCats("todos");
 }
