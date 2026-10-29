@@ -312,30 +312,48 @@ document.addEventListener("keydown", event => {
 });
 
 
-/* 8. ENVÍO DEL FORMULARIO DE ADOPCIÓN */
+
+/* 8. ENVÍO DEL FORMULARIO DE ADOPCIÓN POR WHATSAPP */
 
 if (adoptionForm && selectedCatInput && adoptModal) {
-  adoptionForm.addEventListener("submit", event => {
+  adoptionForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const catName = selectedCatInput.value;
-    const fullNameInput = document.getElementById("fullName");
+    const applicantName = document.getElementById("fullName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const housing = document.getElementById("housing").value;
+    const hasMesh = document.getElementById("hasMesh").checked
+      ? "Sí, cuenta con mallas o cerramientos de seguridad."
+      : "No confirmado";
+    const message = document.getElementById("message").value.trim();
 
-    const applicantName = fullNameInput
-      ? fullNameInput.value.trim()
-      : "";
+    const whatsappMessage =
+`🐾 NUEVA SOLICITUD DE ADOPCIÓN - FUNDACIÓN RINKA
+
+🐱 Gatito de interés: ${catName}
+👤 Nombre completo: ${applicantName}
+📱 Teléfono: ${phone}
+📍 Ciudad: ${city}
+🏠 Tipo de vivienda: ${housing}
+🪟 Seguridad en ventanas y balcones: ${hasMesh}
+
+💚 Sobre su hogar y experiencia con mascotas:
+${message || "No proporcionó información adicional."}`;
+
+    const whatsappURL =
+      "https://wa.me/573167497201?text=" +
+      encodeURIComponent(whatsappMessage);
+
+    window.open(whatsappURL, "_blank");
 
     alert(
-      `¡Muchas gracias ${applicantName}! ` +
-      `Tu solicitud de adopción para ${catName} ` +
-      `ha sido recibida por la Fundación RINKA. ` +
-      `Nos pondremos en contacto contigo pronto.`
+      `Gracias, ${applicantName}. Se abrirá WhatsApp con tu solicitud. Recuerda pulsar Enviar para que RINKA la reciba.`
     );
-
-    adoptionForm.reset();
-    adoptModal.classList.remove("active");
   });
 }
+
 
 
 /* 9. BOTÓN PARA COPIAR EL NÚMERO DE NEQUI */
