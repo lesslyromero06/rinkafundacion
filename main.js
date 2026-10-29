@@ -3,39 +3,39 @@ const catsData = [
   // Gatitos Pequeños
   {
     id: 1,
-    name: "Pelusa",
+    name: "Bomberito",
     category: "gatitos",
-    gender: "Hembra",
-    age: "2.5 Meses",
+    gender: "Macho",
+    age: "5 meses",
     sterilized: false,
-    vaccinated: true,
+    vaccinated: false,
     dewormed: true,
-    image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=80",
-    description: "Muy juguetona, curiosa y cariñosa. Rescatada en Buga. Busca un hogar con mallas de seguridad."
+    image: "images/bomberito.jpg",
+    description: "Muy jugueton, curioso y cariñoso. Rescatado en foco de Bomberos de Buga. Busca un hogar donde lo amen mucho"
   },
   {
     id: 2,
-    name: "Simba",
+    name: "Huesos",
     category: "gatitos",
     gender: "Macho",
     age: "3 Meses",
     sterilized: false,
-    vaccinated: true,
+    vaccinated: false,
     dewormed: true,
-    image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=600&q=80",
-    description: "Un gatito atigrado lleno de energía. Le encanta ronronear y compartir con otros gatitos."
+    image: "images/huesos.jpg",
+    description: "Un gatito gris muy tierno. Le encanta ronronear y compartir con otros gatitos. Nació en los techos y llegó a nosotros muy delgado, de ahí su nombre."
   },
   {
     id: 3,
-    name: "Nube",
+    name: "NN",
     category: "gatitos",
-    gender: "Hembra",
-    age: "2 Meses",
+    gender: "Macho",
+    age: "5 Meses",
     sterilized: false,
-    vaccinated: true,
+    vaccinated: false,
     dewormed: true,
-    image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=600&q=80",
-    description: "Tímida al principio pero muy dulce una vez toma confianza. Ideal para un hogar tranquilo."
+    image: "images/mala-caroso.jpg",
+    description: "Tímido al principio pero muy dulce una vez toma confianza. Ideal para un hogar tranquilo. Nació en los techos y fue un proceso su socialización, pero ya ha confiado más en los humanos"
   },
 
   // Gatas Adultas Esterilizadas
