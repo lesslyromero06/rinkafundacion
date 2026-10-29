@@ -1332,3 +1332,23 @@ iframe {
     }
 }
 
+
+/* ==========================================
+   RINKA: MEJORAR EL FONDO EN CELULARES
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+  .hero {
+    background-position: center center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    background-position: center center;
+    background-size: auto 100%;
+  }
+}
+
