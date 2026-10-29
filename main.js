@@ -41,39 +41,39 @@ const catsData = [
   // Gatas Adultas Esterilizadas
   {
     id: 4,
-    name: "Micaela",
-    category: "gatas-adultas",
-    gender: "Hembra",
-    age: "2 Años",
-    sterilized: true,
-    vaccinated: true,
+    name: "NN",
+    category: "gatitos",
+    gender: "macho",
+    age: "2 meses",
+    sterilized: false,
+    vaccinated: false,
     dewormed: true,
-    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80",
-    description: "Gata tricolor tranquila y amorosa. Se entrega 100% esterilizada y vacunada. Le encanta dormir al sol."
+    image: "images/vision-cabal.jpg",
+    description: "Gato gris proveniente de los techos, amoroso y en búsqueda de un hogar que lo ame toda la vida"
   },
   {
     id: 5,
-    name: "Luna",
-    category: "gatas-adultas",
+    name: "NN",
+    category: "gatitos",
     gender: "Hembra",
-    age: "3 Años",
-    sterilized: true,
-    vaccinated: true,
+    age: "3 meses",
+    sterilized: false,
+    vaccinated: false,
     dewormed: true,
-    image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=600&q=80",
-    description: "Rescatada y recuperada en la fundación. Es experta en dar afecto y busca una familia consciente."
+    image: "images/negra-alejandra.jpg",
+    description: "Rescatada y recuperada en la fundación. Viene de una zona boscosa y busca un hogar con paciencia para confiar"
   },
   {
     id: 6,
-    name: "Kiara",
-    category: "gatas-adultas",
+    name: "NN",
+    category: "gatitos",
     gender: "Hembra",
-    age: "1.5 Años",
-    sterilized: true,
-    vaccinated: true,
+    age: "2 meses",
+    sterilized: false,
+    vaccinated: false,
     dewormed: true,
-    image: "https://images.unsplash.com/photo-1561948955-570b270e7c36?auto=format&fit=crop&w=600&q=80",
-    description: "Joven, esterilizada y muy limpia. Acostumbrada a vivir en interiores protegidos."
+    image: "images/fernanda1.jpg",
+    description: "Nacio en los techos y desconfiaba de los humanos, pero el amor la ha hecho cambiar y ahora busca un lugar lleno de amor para ella"
   }
 ];
 
