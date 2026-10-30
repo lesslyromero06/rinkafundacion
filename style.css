@@ -1369,3 +1369,92 @@ iframe {
   }
 }
 
+
+/* =========================================
+   VENTANA EMERGENTE - JORNADA RINKA
+========================================= */
+
+.promo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.promo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  max-height: 90vh;
+  width: 100%;
+}
+
+.promo-image {
+  display: block;
+  max-width: 100%;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Botón para cerrar */
+.promo-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #d92332;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.promo-close:hover {
+  background: #a91522;
+  transform: scale(1.08);
+}
+
+/* Adaptación para celulares */
+@media screen and (max-width: 768px) {
+  .promo-overlay {
+    padding: 12px;
+  }
+
+  .promo-container {
+    max-width: 100%;
+    max-height: 92vh;
+  }
+
+  .promo-image {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 10px;
+  }
+
+  .promo-close {
+    top: -12px;
+    right: -6px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
