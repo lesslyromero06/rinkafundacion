@@ -34,7 +34,7 @@ const catsData = [
   },
   {
     id: 3,
-    name: "NN",
+    name: "NN3",
     category: "gatitos",
     gender: "Macho",
     age: "5 Meses",
@@ -46,7 +46,7 @@ const catsData = [
   },
   {
     id: 4,
-    name: "NN",
+    name: "NN4",
     category: "gatitos",
     gender: "macho",
     age: "2 meses",
@@ -58,7 +58,7 @@ const catsData = [
   },
   {
     id: 5,
-    name: "NN",
+    name: "NN5",
     category: "gatitos",
     gender: "Hembra",
     age: "3 meses",
@@ -70,7 +70,7 @@ const catsData = [
   },
   {
     id: 6,
-    name: "NN",
+    name: "NN6",
     category: "gatitos",
     gender: "Hembra",
     age: "2 meses",
