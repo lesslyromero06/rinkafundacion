@@ -17,7 +17,7 @@ const catsData = [
     sterilized: false,
     vaccinated: false,
     dewormed: true,
-    image: "images/bomberito.jpg",
+    image: "images/1.bomberito.jpg",
     description: "Muy jugueton, curioso y cariñoso. Rescatado en foco de Bomberos de Buga. Busca un hogar donde lo amen mucho"
   },
   {
@@ -29,7 +29,7 @@ const catsData = [
     sterilized: false,
     vaccinated: false,
     dewormed: true,
-    image: "images/huesos.jpg",
+    image: "images/2.huesos.jpg",
     description: "Un gatito gris muy tierno. Le encanta ronronear y compartir con otros gatitos. Nació en los techos y llegó a nosotros muy delgado, de ahí su nombre."
   },
   {
@@ -41,19 +41,19 @@ const catsData = [
     sterilized: false,
     vaccinated: false,
     dewormed: true,
-    image: "images/mala-caroso.jpg",
+    image: "images/3.mala-caroso.jpg",
     description: "Tímido al principio pero muy dulce una vez toma confianza. Ideal para un hogar tranquilo. Nació en los techos y fue un proceso su socialización, pero ya ha confiado más en los humanos"
   },
   {
     id: 4,
     name: "NN4",
     category: "gatitos",
-    gender: "macho",
+    gender: "Macho",
     age: "2 meses",
     sterilized: false,
     vaccinated: false,
     dewormed: true,
-    image: "images/vision-cabal.jpg",
+    image: "images/4.vision-cabal.jpg",
     description: "Gato gris proveniente de los techos, amoroso y en búsqueda de un hogar que lo ame toda la vida"
   },
   {
@@ -65,7 +65,7 @@ const catsData = [
     sterilized: false,
     vaccinated: false,
     dewormed: true,
-    image: "images/negra-alejandra.jpg",
+    image: "images/5.negra-alejandra.jpg",
     description: "Rescatada y recuperada en la fundación. Viene de una zona boscosa y busca un hogar con paciencia para confiar"
   },
   {
@@ -77,7 +77,7 @@ const catsData = [
     sterilized: false,
     vaccinated: false,
     dewormed: true,
-    image: "images/fernanda1.jpg",
+    image: "images/6.fernanda1.jpg",
     description: "Nacio en los techos y desconfiaba de los humanos, pero el amor la ha hecho cambiar y ahora busca un lugar lleno de amor para ella"
   },
   {
@@ -389,4 +389,18 @@ if (document.readyState === "loading") {
   });
 } else {
   renderCats("todos");
+}
+
+
+/* =========================================
+   CERRAR PROMOCIÓN DE ESTERILIZACIÓN
+========================================= */
+
+const promoOverlay = document.getElementById("promoOverlay");
+const promoClose = document.getElementById("promoClose");
+
+if (promoOverlay && promoClose) {
+  promoClose.addEventListener("click", () => {
+    promoOverlay.style.display = "none";
+  });
 }
