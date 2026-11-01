@@ -91,6 +91,54 @@ const catsData = [
     dewormed: true,
     image: "images/7.princesa.jpg",
     description: "Una gatita proveniente de los techos de Alto Bonito. Es hermosa y busca una familia que le tenga paciencia para enseñarle lo que es el amor, ya que aun le cuesta confiar en los humanos"
+  },
+  {
+    id: 8,
+    name: "Heterocromia",
+    category: "gatitos",
+    gender: "Macho",
+    age: "3 meses",
+    sterilized: false,
+    vaccinated: false,
+    dewormed: true,
+    image: "images/8.heterocromia.png",
+    description: "Gatito con una caracteristica interesante: Cada ojo tiene un color diferente. Era un gato muy feral pero ha cambiado gracias al amor. Busca un hogar para toda la vida."
+  },
+  {
+    id: 9,
+    name: "Mono esponjoso",
+    category: "gatitos",
+    gender: "Macho",
+    age: "3 meses",
+    sterilized: false,
+    vaccinated: false,
+    dewormed: true,
+    image: "images/9.hermano-heterocromia.png",
+    description: "Gatito amarillo con blanco muy hermoso, tiene la cola esponjada y era un gato muy feral, pero ha cambiado su actitud gracicas al amor. En busqueda d eun hogar que lo ame toda la vida"
+  },
+  {
+    id: 10,
+    name: "Siames 1",
+    category: "gatitos",
+    gender: "Macho",
+    age: "2 meses",
+    sterilized: false,
+    vaccinated: false,
+    dewormed: true,
+    image: "images/10.siames1.png",
+    description: "Gatito amoroso en busca de una familia que lo ame para siempre."
+  },
+  {
+    id: 11,
+    name: "Siames 2",
+    category: "gatitos",
+    gender: "Macho",
+    age: "2 meses",
+    sterilized: false,
+    vaccinated: false,
+    dewormed: true,
+    image: "images/11.siames2.png",
+    description: "Gatito amoroso en busca de una familia que lo ame para siempre."
   }
 ];
 
