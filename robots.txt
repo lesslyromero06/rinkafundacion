@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lesslyromero06.github.io/rinkafundacion/sitemap.xml
+Sitemap: https://rinkafundacion.com/sitemap.xml
